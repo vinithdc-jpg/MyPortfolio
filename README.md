@@ -1,36 +1,135 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# 🌐 Personal Portfolio Website
 
-## Getting Started
+A modern and responsive **Full Stack Developer Portfolio** built using **Next.js** and **Tailwind CSS**.
+This project showcases my skills, projects, and experience with a clean **black & purple UI theme** and smooth animations.
 
-First, run the development server:
+---
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+## 🚀 Features
+
+* ✨ Modern UI with black & purple theme
+* ⚡ Built with Next.js (App Router)
+* 🎨 Styled using Tailwind CSS
+* 🔁 Infinite horizontal skills slider
+* 🧩 Reusable components (Navbar, Hero, About, Projects, Contact)
+* 📱 Fully responsive design
+* 🎯 Smooth hover effects & animations
+
+---
+
+## 🛠️ Tech Stack
+
+### Frontend
+
+* HTML, CSS, JavaScript
+* React.js
+* Next.js
+* Tailwind CSS
+
+### Backend
+
+* Node.js
+* Express.js
+
+### Database
+
+* MongoDB
+* PostgreSQL
+
+---
+
+## 📂 Project Structure
+
+```
+/app
+/components
+  ├── Navbar.jsx
+  ├── Hero.jsx
+  ├── About.jsx
+  ├── Skills.jsx
+  ├── Projects.jsx
+  ├── Contact.jsx
+/public
+/styles
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+## 📸 Screenshots
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+* Hero Section
+* About Section
+* Skills Slider
+* Projects Section
+* Contact Section
 
-## Learn More
+*(Add your screenshots here)*
 
-To learn more about Next.js, take a look at the following resources:
+---
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## ⚙️ Installation
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+1. Clone the repository
 
-## Deploy on Vercel
+```
+git clone https://github.com/your-username/your-repo-name.git
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+2. Navigate to the project folder
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```
+cd your-repo-name
+```
+
+3. Install dependencies
+
+```
+npm install
+```
+
+4. Run the development server
+
+```
+npm run dev
+```
+
+5. Open in browser
+
+```
+http://localhost:3000
+```
+
+---
+
+## 🌍 Deployment
+
+You can deploy this project easily using:
+
+* Vercel (Recommended)
+* Netlify
+
+---
+
+## 📌 Future Improvements
+
+* 🌙 Dark/Light mode toggle
+* 📊 Add project filtering
+* 🧠 AI-powered chatbot integration
+* 📧 Contact form backend integration
+
+---
+
+## 🙋‍♂️ Author
+
+**Your Name**
+
+* GitHub: https://github.com/your-username
+* LinkedIn: https://linkedin.com/in/your-profile
+
+---
+
+## ⭐ Support
+
+If you like this project, give it a ⭐ on GitHub!
+
+---
