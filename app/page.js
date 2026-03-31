@@ -1,6 +1,8 @@
 import About from '@/Components/About'
+import GetInTougth from '@/Components/GetInTougth'
 import Hero from '@/Components/Hero'
 import Navbar from '@/Components/Navbar'
+import ProjectSession from '@/Components/ProjectSession'
 import React from 'react'
 
 const page = () => {
@@ -9,6 +11,8 @@ const page = () => {
       <Navbar />
       <Hero />
       <About />
+      <ProjectSession />
+      <GetInTougth />
     </div>
   )
 }
