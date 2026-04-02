@@ -1,9 +1,17 @@
+'use client'
+
 import React from "react";
+import { motion } from "framer-motion";
 import Skills from "./Skills";
 import Image from "next/image";
 import { FaHtml5, FaCss3Alt, FaJs, FaReact, FaNodeJs } from "react-icons/fa";
 import { SiNextdotjs, SiTailwindcss, SiMongodb, SiPostgresql, SiExpress } from "react-icons/si";
-
+import {
+    slideUpVariants,
+    staggerContainerVariants,
+    staggerItemVariants,
+    imageVariants,
+} from "@/lib/motionVariants";
 
 const About = () => {
     const items = [
@@ -21,7 +29,6 @@ const About = () => {
 
     return (
         <section className="w-full bg-black text-white py-20 px-6">
-
             {/* Moving Skills Slider */}
             <div className="mb-20">
                 <Skills />
@@ -29,10 +36,21 @@ const About = () => {
 
             {/* About Section */}
             <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
-
                 {/* Profile Image */}
-                <div className="flex justify-center">
-                    <div className="relative">
+                <motion.div
+                    className="flex justify-center"
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true, margin: "-50px" }}
+                    variants={slideUpVariants}
+                >
+                    <motion.div
+                        className="relative"
+                        initial="hidden"
+                        whileInView="visible"
+                        viewport={{ once: true }}
+                        variants={imageVariants}
+                    >
                         <Image
                             src="/images.jfif"
                             alt="Profile"
@@ -43,48 +61,90 @@ const About = () => {
 
                         {/* glow effect */}
                         <div className="absolute inset-0 rounded-2xl bg-purple-600 blur-3xl opacity-20 -z-10"></div>
-                    </div>
-                </div>
+                    </motion.div>
+                </motion.div>
 
                 {/* About Content */}
-                <div>
-                    <h1 className="text-4xl font-bold mb-4">
+                <motion.div
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true, margin: "-50px" }}
+                    variants={slideUpVariants}
+                >
+                    <motion.h1
+                        className="text-4xl font-bold mb-4"
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.6 }}
+                    >
                         About <span className="text-purple-500">Me</span>
-                    </h1>
+                    </motion.h1>
 
-                    <h3 className="text-xl text-gray-300 mb-6">
+                    <motion.h3
+                        className="text-xl text-gray-300 mb-6"
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.6, delay: 0.1 }}
+                    >
                         Full Stack Developer
-                    </h3>
+                    </motion.h3>
 
-                    <p className="text-gray-400 leading-relaxed mb-8">
+                    <motion.p
+                        className="text-gray-400 leading-relaxed mb-8"
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.6, delay: 0.2 }}
+                    >
                         I am a passionate Full Stack Developer who enjoys building modern,
                         scalable, and user-friendly web applications. I specialize in both
                         frontend and backend development, creating seamless experiences
                         from design to deployment. My main technologies include JavaScript,
                         React, Next.js, Node.js, and databases like PostgreSQL.
-                    </p>
+                    </motion.p>
 
                     {/* Tech Stack */}
-                    <h3 className="text-xl font-semibold mb-4">Tech Stack</h3>
+                    <motion.h3
+                        className="text-xl font-semibold mb-4"
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.6, delay: 0.3 }}
+                    >
+                        Tech Stack
+                    </motion.h3>
 
-                    <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                    <motion.div
+                        className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4"
+                        initial="hidden"
+                        whileInView="visible"
+                        viewport={{ once: true, margin: "-50px" }}
+                        variants={staggerContainerVariants}
+                    >
                         {items.map((item, index) => (
-                            <div
+                            <motion.div
                                 key={index}
                                 className="flex items-center gap-3 px-4 py-3 rounded-xl 
       bg-[#0f0f0f] border border-gray-800 
       hover:border-purple-500 hover:bg-purple-500/10 
       transition"
+                                variants={staggerItemVariants}
+                                whileHover={{
+                                    scale: 1.05,
+                                    borderColor: '#a855f7',
+                                    transition: { duration: 0.2 },
+                                }}
                             >
                                 <span className="text-xl">{item.icon}</span>
                                 <span className="text-sm font-medium text-gray-200">
                                     {item.name}
                                 </span>
-                            </div>
+                            </motion.div>
                         ))}
-                    </div>
-                </div>
-
+                    </motion.div>
+                </motion.div>
             </div>
         </section>
     );
