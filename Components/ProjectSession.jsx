@@ -12,58 +12,41 @@ import {
 const projects = [
     {
         id: 1,
-        image: '/images.jfif',
-        title: 'Project Name',
-        description: 'Brief description of your project',
-        tags: ['React', 'Tailwind CSS'],
-        liveUrl: '#',
-        githubUrl: '#'
+        image: '/projects/service.png',
+        title: 'Local service',
+        description: 'Local-service is a modern web application built with Next.js that provides local service solutions. The project is deployed and live at https://local-service-eight.vercel.app. It features a full-stack architecture with user authentication, cloud-based file management, and a responsive UI.',
+        tags: ['Tailwind CSS','Next.js','MongoDB','Framer Motion','Node.js',],
+        liveUrl: 'https://local-service-eight.vercel.app/',
+        githubUrl: 'https://github.com/vinithdc-jpg/Local-service'
     },
     {
         id: 2,
-        image: '/images.jfif',
-        title: 'Project Name',
-        description: 'Brief description of your project',
-        tags: ['Next.js', 'JavaScript'],
-        liveUrl: '#',
-        githubUrl: '#'
+        image: '/projects/map.png',
+        title: 'React map',
+        description: 'A modern, interactive map application built with Next.js and React Leaflet. Users can search for any location and view it on a map with a marker.',
+        tags: ['Next.js', 'React','React Leaflet','Leaflet','Tailwind CSS','OpenStreetMap API '],
+        liveUrl: 'https://react-map-chi.vercel.app/',
+        githubUrl: 'https://github.com/vinithdc-jpg/React-map'
     },
     {
         id: 3,
-        image: '/images.jfif',
-        title: 'Project Name',
-        description: 'Brief description of your project',
-        tags: ['Web Design', 'CSS'],
-        liveUrl: '#',
-        githubUrl: '#'
+        image: '/projects/classroom.png',
+        title: 'Smart classroom',
+        description: 'A modern, responsive Smart Notes Application built using Next.js (App Router) and Tailwind CSS. This app allows users to create, manage, and organize notes efficiently with powerful features like search, filtering, pinning, and local storage persistence.',
+        tags: ['Next.js', 'Tailwind CSS','React'],
+        liveUrl: 'https://smart-classroom-ecru.vercel.app',
+        githubUrl: 'https://github.com/vinithdc-jpg/smart-classroom'
     },
     {
         id: 4,
-        image: '/images.jfif',
-        title: 'Project Name',
-        description: 'Brief description of your project',
-        tags: ['React', 'Node.js'],
-        liveUrl: '#',
-        githubUrl: '#'
+        image: '/projects/note.png',
+        title: 'Note app',
+        description: 'A modern, responsive Smart Notes Application built using Next.js (App Router) and Tailwind CSS. This app allows users to create, manage, and organize notes efficiently with powerful features like search, filtering, pinning, and local storage persistence.',
+        tags: ['Next.js ','React', 'Tailwind CSS'],
+        liveUrl: 'https://notes-app-pi-lake.vercel.app/',
+        githubUrl: 'https://github.com/vinithdc-jpg/NotesApp'
     },
-    {
-        id: 5,
-        image: '/images.jfif',
-        title: 'Project Name',
-        description: 'Brief description of your project',
-        tags: ['Full Stack', 'MongoDB'],
-        liveUrl: '#',
-        githubUrl: '#'
-    },
-    {
-        id: 6,
-        image: '/images.jfif',
-        title: 'Project Name',
-        description: 'Brief description of your project',
-        tags: ['JavaScript', 'API'],
-        liveUrl: '#',
-        githubUrl: '#'
-    },
+    
 ]
 
 const ProjectSession = () => {
