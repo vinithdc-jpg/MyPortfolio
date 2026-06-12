@@ -1,7 +1,7 @@
 'use client'
 
 import React from "react";
-import { motion } from "framer-motion";
+import { motion } from 'framer-motion'
 import Skills from "./Skills";
 import Image from "next/image";
 import { FaHtml5, FaCss3Alt, FaJs, FaReact, FaNodeJs } from "react-icons/fa";
@@ -52,7 +52,7 @@ const About = () => {
                         variants={imageVariants}
                     >
                         <Image
-                            src="/images.jfif"
+                            src="/projects/about.jpg"
                             alt="Profile"
                             width={580}
                             height={580}

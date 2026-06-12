@@ -16,6 +16,20 @@ const Navbar = () => {
         return () => window.removeEventListener('scroll', handleScroll)
     }, [])
 
+    const scrollToSection = (id) => {
+        const element = document.getElementById(id)
+        if (element) {
+            element.scrollIntoView({ behavior: 'smooth' })
+        }
+    }
+
+    const navLinks = [
+        { label: 'Home', id: 'home' },
+        { label: 'About', id: 'about' },
+        { label: 'Projects', id: 'projects' },
+        { label: 'Contact', id: 'contact' }
+    ]
+
     return (
         <motion.nav
             className="fixed top-5 left-1/2 -translate-x-1/2 w-[94vw] text-white z-50 rounded-4xl transition-all duration-300"
@@ -40,7 +54,7 @@ const Navbar = () => {
 
                 {/* Navigation Links */}
                 <ul className="hidden md:flex space-x-8 text-sm font-medium">
-                    {['Home', 'Service', 'Projects', 'About'].map((link, index) => (
+                    {navLinks.map((link, index) => (
                         <motion.li
                             key={index}
                             className="cursor-pointer hover:text-purple-400 transition"
@@ -51,8 +65,9 @@ const Navbar = () => {
                                 color: '#a855f7',
                                 transition: { duration: 0.2 },
                             }}
+                            onClick={() => scrollToSection(link.id)}
                         >
-                            {link}
+                            {link.label}
                         </motion.li>
                     ))}
                 </ul>
@@ -69,6 +84,7 @@ const Navbar = () => {
                         whileHover="hover"
                         whileTap="tap"
                         variants={buttonHoverVariants}
+                        onClick={() => scrollToSection('contact')}
                     >
                         Get in Touch
                     </motion.button>

@@ -39,10 +39,10 @@ const Hero = () => {
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.6, delay: 0.1 }}
                     >
-                        Frontend <br />
+                        Full Stack <br />
                         Developer
                         <span className="block text-purple-400">
-                            UI/UX Enthusiast
+                            Web Developer
                         </span>
                     </motion.h1>
 
@@ -74,43 +74,49 @@ const Hero = () => {
                         >
                             Book a free call
                         </motion.button>
-
-                        <motion.button
-                            className="flex items-center justify-center w-12 h-12 rounded-full 
+                        <a href="https://github.com/vinithdc-jpg" target="_blank" rel="noopener noreferrer">
+                            <motion.button
+                                className="flex items-center justify-center w-12 h-12 rounded-full 
     border border-gray-700 bg-white/5 opacity-60 
     hover:opacity-100 transition duration-300"
-                            initial="rest"
-                            whileHover="hover"
-                            whileTap="tap"
-                            variants={buttonHoverVariants}
-                        >
-                            <Image
-                                src="/github.svg"
-                                alt="Github"
-                                width={22}
-                                height={22}
-                                className="invert"
-                            />
-                        </motion.button>
+                                initial="rest"
+                                whileHover="hover"
+                                whileTap="tap"
+                                variants={buttonHoverVariants}
+                            >
 
-                        <motion.button
-                            className="flex items-center justify-center w-12 h-12 rounded-full 
+
+                                <Image
+                                    src="/github.svg"
+                                    alt="Github"
+                                    width={22}
+                                    height={22}
+                                    className="invert"
+                                />
+
+                            </motion.button>
+                        </a>
+                        <a href="https://www.linkedin.com/in/vinith2005/" target="_blank" rel="noopener noreferrer">
+                            <motion.button
+                                className="flex items-center justify-center w-12 h-12 rounded-full 
     border border-gray-700 bg-white/5 opacity-60 
     hover:opacity-100 transition duration-300"
-                            initial="rest"
-                            whileHover="hover"
-                            whileTap="tap"
-                            variants={buttonHoverVariants}
-                        >
-                            <Image
-                                src="/linkedin.svg"
-                                alt="Linkedin"
-                                width={22}
-                                height={22}
-                                className="invert"
-                            />
-                        </motion.button>
+                                initial="rest"
+                                whileHover="hover"
+                                whileTap="tap"
+                                variants={buttonHoverVariants}
+                            >
+                                <Image
+                                    src="/linkedin.svg"
+                                    alt="Linkedin"
+                                    width={22}
+                                    height={22}
+                                    className="invert"
+                                />
+                            </motion.button>
+                        </a>
                     </motion.div>
+
                 </motion.div>
 
                 {/* Right Image with Parallax */}

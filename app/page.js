@@ -9,10 +9,18 @@ const page = () => {
   return (
     <div>
       <Navbar />
-      <Hero />
-      <About />
-      <ProjectSession />
-      <GetInTougth />
+      <section id="home">
+        <Hero />
+      </section>
+      <section id="about">
+        <About />
+      </section>
+      <section id="projects">
+        <ProjectSession />
+      </section>
+      <section id="contact">
+        <GetInTougth />
+      </section>
     </div>
   )
 }
