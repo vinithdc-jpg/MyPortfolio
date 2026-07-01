@@ -6,8 +6,9 @@ import {
     slideUpVariants,
     staggerContainerVariants,
     staggerItemVariants,
-    buttonHoverVariants,
 } from '@/lib/motionVariants'
+
+const CONTACT_EMAIL = 'xgoddemon023@gmail.com'
 
 const GetInTougth = () => {
     const [formData, setFormData] = useState({
@@ -16,6 +17,7 @@ const GetInTougth = () => {
         subject: '',
         message: '',
     })
+    const [status, setStatus] = useState('idle')
 
     const handleInputChange = (e) => {
         const { name, value } = e.target
@@ -23,6 +25,38 @@ const GetInTougth = () => {
             ...prev,
             [name]: value,
         }))
+    }
+
+    const handleSubmit = async (e) => {
+        e.preventDefault()
+        setStatus('loading')
+
+        try {
+            const response = await fetch(`https://formsubmit.co/ajax/${CONTACT_EMAIL}`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    Accept: 'application/json',
+                },
+                body: JSON.stringify({
+                    name: formData.name,
+                    email: formData.email,
+                    subject: formData.subject,
+                    message: formData.message,
+                    _replyto: formData.email,
+                    _subject: formData.subject || 'New portfolio contact',
+                }),
+            })
+
+            if (!response.ok) {
+                throw new Error('Failed to send message')
+            }
+
+            setStatus('success')
+            setFormData({ name: '', email: '', subject: '', message: '' })
+        } catch {
+            setStatus('error')
+        }
     }
 
     return (
@@ -55,12 +89,13 @@ const GetInTougth = () => {
                     viewport={{ once: true }}
                     transition={{ duration: 0.6, delay: 0.1 }}
                 >
-                    Have a project in mind or want to discuss opportunities? I'd love to hear from you.
+                    Have a project in mind or want to discuss opportunities? I&apos;d love to hear from you.
                 </motion.p>
 
                 {/* Form Box */}
-                <motion.div
-                    className="mt-10 border border-purple-500/30 rounded-xl p-6 bg-[#0b0b0f] shadow-lg"
+                <motion.form
+                    onSubmit={handleSubmit}
+                    className="mt-10 border border-purple-500/30 rounded-xl p-6 bg-[#0b0b0f] shadow-lg text-left"
                     initial={{ opacity: 0, scale: 0.95 }}
                     whileInView={{ opacity: 1, scale: 1 }}
                     viewport={{ once: true }}
@@ -80,6 +115,7 @@ const GetInTougth = () => {
                             placeholder="John Doe"
                             value={formData.name}
                             onChange={handleInputChange}
+                            required
                             className="w-full px-4 py-2 bg-transparent border border-gray-700 rounded-md focus:outline-none focus:border-purple-500 text-sm transition"
                             variants={staggerItemVariants}
                             whileFocus={{
@@ -93,6 +129,7 @@ const GetInTougth = () => {
                             placeholder="john@example.com"
                             value={formData.email}
                             onChange={handleInputChange}
+                            required
                             className="w-full px-4 py-2 bg-transparent border border-gray-700 rounded-md focus:outline-none focus:border-purple-500 text-sm transition"
                             variants={staggerItemVariants}
                             whileFocus={{
@@ -127,6 +164,7 @@ const GetInTougth = () => {
                         placeholder="Tell me about your project..."
                         value={formData.message}
                         onChange={handleInputChange}
+                        required
                         className="w-full mt-4 px-4 py-2 bg-transparent border border-gray-700 rounded-md focus:outline-none focus:border-purple-500 text-sm resize-none transition"
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
@@ -140,20 +178,38 @@ const GetInTougth = () => {
 
                     {/* Button */}
                     <motion.button
-                        className="w-full mt-5 bg-gradient-to-r from-purple-600 to-purple-500 hover:opacity-90 transition py-2 rounded-md flex items-center justify-center gap-2 text-sm font-medium"
+                        type="submit"
+                        disabled={status === 'loading'}
+                        className="w-full mt-5 bg-gradient-to-r from-purple-600 to-purple-500 hover:opacity-90 transition py-2 rounded-md flex items-center justify-center gap-2 text-sm font-medium disabled:opacity-60 disabled:cursor-not-allowed"
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.4, delay: 0.45 }}
-                        whileHover={{
+                        whileHover={status === 'loading' ? undefined : {
                             scale: 1.02,
                             boxShadow: '0 0 20px rgba(168, 85, 247, 0.4)',
                         }}
-                        whileTap={{ scale: 0.98 }}
+                        whileTap={status === 'loading' ? undefined : { scale: 0.98 }}
                     >
-                        Send Message <i className="bi bi-send"></i>
+                        {status === 'loading' ? 'Sending...' : 'Send Message'}{' '}
+                        <i className="bi bi-send"></i>
                     </motion.button>
-                </motion.div>
+
+                    {status === 'success' && (
+                        <p className="mt-3 text-sm text-green-400 text-center">
+                            Message sent! I&apos;ll get back to you soon.
+                        </p>
+                    )}
+                    {status === 'error' && (
+                        <p className="mt-3 text-sm text-red-400 text-center">
+                            Something went wrong. Please try again or{' '}
+                            <a href={`mailto:${CONTACT_EMAIL}`} className="underline hover:text-red-300">
+                                email me directly
+                            </a>
+                            .
+                        </p>
+                    )}
+                </motion.form>
 
                 {/* Social Icons */}
                 <motion.div
@@ -164,13 +220,16 @@ const GetInTougth = () => {
                     transition={{ duration: 0.6, delay: 0.5 }}
                 >
                     {[
-                        "bi-twitter",
-                        "bi-github",
-                        "bi-linkedin",
-                        "bi-envelope"
-                    ].map((icon, i) => (
-                        <motion.button
-                            key={i}
+                        { icon: 'bi-github', href: 'https://github.com/vinithdc-jpg', label: 'GitHub' },
+                        { icon: 'bi-linkedin', href: 'https://www.linkedin.com/in/vinith2005/', label: 'LinkedIn' },
+                        { icon: 'bi-envelope', href: `mailto:${CONTACT_EMAIL}`, label: 'Email' },
+                    ].map((social, i) => (
+                        <motion.a
+                            key={social.icon}
+                            href={social.href}
+                            target={social.href.startsWith('mailto:') ? undefined : '_blank'}
+                            rel={social.href.startsWith('mailto:') ? undefined : 'noopener noreferrer'}
+                            aria-label={social.label}
                             className="p-2 rounded-full border border-gray-700 hover:border-purple-500 hover:text-purple-400 transition"
                             whileHover={{
                                 scale: 1.15,
@@ -183,8 +242,8 @@ const GetInTougth = () => {
                             viewport={{ once: true }}
                             transition={{ duration: 0.3, delay: 0.5 + i * 0.05 }}
                         >
-                            <i className={`bi ${icon}`}></i>
-                        </motion.button>
+                            <i className={`bi ${social.icon}`}></i>
+                        </motion.a>
                     ))}
                 </motion.div>
             </motion.div>
