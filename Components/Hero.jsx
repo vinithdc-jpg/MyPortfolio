@@ -63,7 +63,7 @@ const Hero = () => {
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.6, delay: 0.3 }}
                     >
-                        <motion.button
+                        {/* <motion.button
                             className="bg-white text-black px-6 py-3 rounded-lg font-semibold 
   transition-all duration-300 
   hover:bg-gray-200 hover:shadow-[0_0_20px_rgba(255,255,255,0.6)]"
@@ -73,7 +73,7 @@ const Hero = () => {
                             variants={buttonHoverVariants}
                         >
                             Book a free call
-                        </motion.button>
+                        </motion.button> */}
                         <a href="https://github.com/vinithdc-jpg" target="_blank" rel="noopener noreferrer">
                             <motion.button
                                 className="flex items-center justify-center w-12 h-12 rounded-full 
