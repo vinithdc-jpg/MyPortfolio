@@ -1,9 +1,10 @@
-import About from '@/Components/About'
-import GetInTougth from '@/Components/GetInTougth'
-import Hero from '@/Components/Hero'
-import Navbar from '@/Components/Navbar'
-import ProjectSession from '@/Components/ProjectSession'
-import React from 'react'
+import About from "@/Components/About";
+import GetInTougth from "@/Components/GetInTougth";
+import Hero from "@/Components/Hero";
+import Navbar from "@/Components/Navbar";
+import ProjectSession from "@/Components/ProjectSession";
+import React from "react";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 const page = () => {
   return (
@@ -21,8 +22,9 @@ const page = () => {
       <section id="contact">
         <GetInTougth />
       </section>
+      <SpeedInsights />
     </div>
-  )
-}
+  );
+};
 
-export default page
+export default page;
